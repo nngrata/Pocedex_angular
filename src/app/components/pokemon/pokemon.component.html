@@ -1,0 +1,50 @@
+<div class="nav">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1024px-International_Pok%C3%A9mon_logo.svg.png" alt="logo">
+    <form onsubmit="return false;">
+    <input placeholder="Insert Pokemon name" type="search" (keyup) = "Namehandler({pigeonhole : $event})">
+    <button (click)="Namesearch()">Search</button>
+   </form>
+</div>
+<div class="container" id="elements">
+  <button (click)="Change({value : 10})">10 Pokemons per page</button>
+  <button (click)="Change({value : 15})">15 Pokemons per page</button>
+  <button (click)="Change({value : 25})">25 Pokemons per page</button>
+  <button (click)="Change({value : 50})">50 Pokemons per page</button>
+  <button (click)="Typesearch({type : 'bug'})" style="background-color: {{colors['bug']}}">Bug</button>
+  <button (click)="Typesearch({type : 'fire'} )" style="background-color: {{colors['fire']}}">Fire</button>
+  <button (click)="Typesearch({type : 'grass'})" style="background-color: {{colors['grass']}}">Grass</button>
+  <button (click)="Typesearch({type : 'electric'})" style="background-color: {{colors['electric']}}">Electric</button>
+  <button (click)="Typesearch({type : 'water'})" style="background-color: {{colors['water']}}">Water</button>
+  <button (click)="Typesearch({type : 'ground'})" style="background-color: {{colors['ground']}}">Ground</button>
+  <button (click)="Typesearch({type : 'rock'})" style="background-color: {{colors['rock']}}">Rock</button>
+  <button (click)="Typesearch({type : 'fairy'})" style="background-color: {{colors['fairy']}}">Fairy</button>
+  <button (click)="Typesearch({type : 'poison'})" style="background-color: {{colors['poison']}}">Poison</button>
+  <button (click)="Typesearch({type : 'dragon'})" style="background-color: {{colors['dragon']}}">Dragon</button>
+  <button (click)="Typesearch({type : 'psychic'})" style="background-color: {{colors['psychic']}}">Psychic</button>
+  <button (click)="Typesearch({type : 'flying'})" style="background-color: {{colors['flying']}}">Flying</button>
+  <button (click)="Typesearch({type : 'fighting'})" style="background-color: {{colors['fighting']}}">Fighting</button>
+  <button (click)="Typesearch({type : 'normal'})" style="background-color: {{colors['normal']}}">Normal</button>
+  <button  (click)="All()">All</button>
+</div>
+<div class="container">
+  <div class="pokemon-box" *ngFor="let pokemon of pokemons">
+    <div class="front">
+    <img [src]="pokemon.sprites.front_default" class="icontainer">
+      <h5>{{pokemon.name.toUpperCase()}}</h5>
+      <h6 >Type: <strong id="type" style="background-color:{{colors[pokemon.types[0].type.name]}};">{{pokemon.types[0].type.name}}</strong></h6>
+    </div>
+    <div class="back">
+      <h5>{{pokemon.name.toUpperCase()}}</h5>
+      <span>HP: {{pokemon.stats[0].base_stat}}</span><br>
+      <span>Attack: {{pokemon.stats[1].base_stat}}</span><br>
+      <span>Defense: {{pokemon.stats[2].base_stat}}</span><br>
+      <span>S-Attack: {{pokemon.stats[3].base_stat}}</span><br>
+      <span>S-Defense: {{pokemon.stats[4].base_stat}}</span><br>
+      <span>Speed: {{pokemon.stats[5].base_stat}}</span><br>
+    </div>
+  </div>
+</div>
+<div class="scroll">
+<button (click)="Back()">Back</button>
+  <button (click)="Next()">Next</button>
+</div>
