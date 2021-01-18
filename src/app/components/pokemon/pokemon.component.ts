@@ -14,7 +14,7 @@ pokemonname: any;
   constructor(private dataService: DataService) {}
   offset: any;
   limit: any;
-  colors = {
+  colors: {[index: string]: any} = {
     fire: '#FDDFDF',
     grass: '#DEFDE0',
     electric: '#FCF7DE',
